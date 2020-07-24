@@ -18,9 +18,11 @@ def save_code_as_file(uid=None,code=None, language=None):
     '''
     if uid is None:
         uid = create_uid()
+        print('test')
+        print(uid)
         with sqlite3.connect("sharecode.db") as conn:
             curs = conn.cursor()
-            curs.execute('INSERT INTO code (uid, content,language) VALUES(?,?,?)',
+            curs.execute('INSERT INTO code (content,language) VALUES(?,?)',
                          (code, language))
             conn.commit()
 
